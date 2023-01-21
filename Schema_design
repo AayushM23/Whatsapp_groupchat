@@ -1,0 +1,26 @@
+SCHEMA DESIGN
+We can include a Table: Groups
+group_id (INT)  //primary key
+group_name (VARCHAR)
+created_at (TIMESTAMP)
+
+Table: Users
+user_id (INT) //primary key
+user_name (VARCHAR)
+phone_number (VARCHAR)
+
+Table: Messages
+message_id (INT) //primary key
+group_id (INT) (foreign key references groups(group_id))
+user_id (INT) (foreign key references users(user_id))
+message_text (TEXT)
+time_sent (TIMESTAMP)
+
+Table: Group_Members
+group_id (INT) (foreign key references groups(group_id))
+user_id (INT) (foreign key references users(user_id))
+
+every group table has a group name, time it was created at and a unique group id. Similarly users table will have the user name, their phone number
+then there wil be a messages table which will have unique message id, message text and the time it is sent. For group members table we will have a group id, user id.
+Here I am using SQL database.
+
